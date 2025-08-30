@@ -1,8 +1,8 @@
 package com.estoque.controle.controller;
 
-import com.estoque.controle.model.usuario.AutenticacaoDTO;
-import com.estoque.controle.model.usuario.LoginResponseDTO;
-import com.estoque.controle.model.usuario.RegisterDTO;
+import com.estoque.controle.dto.AutenticacaoDTO;
+import com.estoque.controle.dto.LoginResponseDTO;
+import com.estoque.controle.dto.RegisterDTO;
 import com.estoque.controle.model.usuario.Usuario;
 import com.estoque.controle.repository.UsuarioRepository;
 import com.estoque.controle.services.TokenService;

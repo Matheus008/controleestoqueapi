@@ -2,7 +2,7 @@ package com.estoque.controle.controller;
 
 import com.estoque.controle.model.usuario.Usuario;
 import com.estoque.controle.model.vendas.Venda;
-import com.estoque.controle.model.vendas.VendasDTO;
+import com.estoque.controle.dto.VendasDTO;
 import com.estoque.controle.repository.UsuarioRepository;
 import com.estoque.controle.services.VendaService;
 import io.swagger.v3.oas.annotations.Operation;

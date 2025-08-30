@@ -1,7 +1,7 @@
 package com.estoque.controle.controller;
 
 import com.estoque.controle.model.produto.Movimentacao;
-import com.estoque.controle.model.produto.MovimentacaoDTO;
+import com.estoque.controle.dto.MovimentacaoDTO;
 import com.estoque.controle.model.usuario.Usuario;
 import com.estoque.controle.repository.MovimentacaoRepository;
 import com.estoque.controle.repository.UsuarioRepository;

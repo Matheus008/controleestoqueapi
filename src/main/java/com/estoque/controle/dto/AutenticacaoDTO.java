@@ -1,4 +1,4 @@
-package com.estoque.controle.model.usuario;
+package com.estoque.controle.dto;
 
 public record AutenticacaoDTO(String email, String senha) {
 }

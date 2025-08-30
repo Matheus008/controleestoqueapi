@@ -1,9 +1,9 @@
 package com.estoque.controle.controller;
 
 import com.estoque.controle.model.produto.TipoMovimentacao;
-import com.estoque.controle.model.relatorios.FiltroRelatorioDTO;
-import com.estoque.controle.model.relatorios.RelatorioMovimentacaoDTO;
-import com.estoque.controle.model.relatorios.RelatorioVendaDTO;
+import com.estoque.controle.dto.relatorios.FiltroRelatorioDTO;
+import com.estoque.controle.dto.relatorios.RelatorioMovimentacaoDTO;
+import com.estoque.controle.dto.relatorios.RelatorioVendaDTO;
 import com.estoque.controle.services.RelatorioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

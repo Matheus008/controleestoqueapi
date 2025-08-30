@@ -1,4 +1,4 @@
-package com.estoque.controle.model.relatorios;
+package com.estoque.controle.dto.relatorios;
 
 import java.time.LocalDateTime;
 

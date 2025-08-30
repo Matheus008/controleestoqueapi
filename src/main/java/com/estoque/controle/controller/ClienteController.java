@@ -1,7 +1,7 @@
 package com.estoque.controle.controller;
 
 import com.estoque.controle.model.cliente.Cliente;
-import com.estoque.controle.model.cliente.ClienteDTO;
+import com.estoque.controle.dto.ClienteDTO;
 import com.estoque.controle.repository.ClienteRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

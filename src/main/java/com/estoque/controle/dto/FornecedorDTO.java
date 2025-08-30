@@ -1,4 +1,6 @@
-package com.estoque.controle.model.fornecedor;
+package com.estoque.controle.dto;
+
+import com.estoque.controle.model.fornecedor.TipoFornecedor;
 
 public record FornecedorDTO(String nomeFornecedor, String cpfOuCnpj, TipoFornecedor tipoFornecedor) {
 

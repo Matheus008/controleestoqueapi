@@ -1,4 +1,6 @@
-package com.estoque.controle.model.cliente;
+package com.estoque.controle.dto;
+
+import com.estoque.controle.model.cliente.TipoCliente;
 
 public record ClienteDTO(String nomeCliente, String cpfOuCnpj, TipoCliente tipoCliente) {
 

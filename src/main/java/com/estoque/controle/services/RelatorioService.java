@@ -1,9 +1,9 @@
 package com.estoque.controle.services;
 
 import com.estoque.controle.model.produto.Movimentacao;
-import com.estoque.controle.model.relatorios.FiltroRelatorioDTO;
-import com.estoque.controle.model.relatorios.RelatorioMovimentacaoDTO;
-import com.estoque.controle.model.relatorios.RelatorioVendaDTO;
+import com.estoque.controle.dto.relatorios.FiltroRelatorioDTO;
+import com.estoque.controle.dto.relatorios.RelatorioMovimentacaoDTO;
+import com.estoque.controle.dto.relatorios.RelatorioVendaDTO;
 import com.estoque.controle.model.vendas.Venda;
 import com.estoque.controle.repository.MovimentacaoRepository;
 import com.estoque.controle.repository.VendaRepository;

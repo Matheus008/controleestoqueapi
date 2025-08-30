@@ -2,7 +2,7 @@ package com.estoque.controle.controller;
 
 import com.estoque.controle.model.fornecedor.Fornecedor;
 import com.estoque.controle.model.produto.Produto;
-import com.estoque.controle.model.produto.ProdutoDTO;
+import com.estoque.controle.dto.ProdutoDTO;
 import com.estoque.controle.repository.FornecedorRepository;
 import com.estoque.controle.repository.ProdutoRepository;
 import com.estoque.controle.services.ProdutoService;

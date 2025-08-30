@@ -1,7 +1,7 @@
 package com.estoque.controle.controller;
 
 import com.estoque.controle.model.fornecedor.Fornecedor;
-import com.estoque.controle.model.fornecedor.FornecedorDTO;
+import com.estoque.controle.dto.FornecedorDTO;
 import com.estoque.controle.repository.FornecedorRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
