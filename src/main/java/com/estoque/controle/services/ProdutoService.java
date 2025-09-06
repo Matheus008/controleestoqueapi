@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProdutoService {
 
-    private ProdutoRepository produtoRepository;
-    private FornecedorRepository fornecedorRepository;
+    private final ProdutoRepository produtoRepository;
+    private final FornecedorRepository fornecedorRepository;
 
     public ProdutoService(ProdutoRepository produtoRepository, FornecedorRepository fornecedorRepository) {
         this.produtoRepository = produtoRepository;

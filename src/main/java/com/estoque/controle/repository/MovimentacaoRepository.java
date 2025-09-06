@@ -1,7 +1,6 @@
 package com.estoque.controle.repository;
 
 import com.estoque.controle.model.produto.Movimentacao;
-import com.estoque.controle.model.produto.TipoMovimentacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;

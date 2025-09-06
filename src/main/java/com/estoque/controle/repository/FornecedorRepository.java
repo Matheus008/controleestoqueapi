@@ -1,6 +1,5 @@
 package com.estoque.controle.repository;
 
-import com.estoque.controle.model.cliente.Cliente;
 import com.estoque.controle.model.fornecedor.Fornecedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 

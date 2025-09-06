@@ -19,9 +19,9 @@ import java.util.List;
 @Tag(name = "Produto", description = "Gerenciamento dos produtos")
 public class ProdutoController {
 
-    private ProdutoRepository produtoRepository;
-    private ProdutoService produtoService;
-    private FornecedorRepository fornecedorRepository;
+    private final ProdutoRepository produtoRepository;
+    private final ProdutoService produtoService;
+    private final FornecedorRepository fornecedorRepository;
 
     public ProdutoController(ProdutoRepository produtoRepository, ProdutoService produtoService, FornecedorRepository fornecedorRepository) {
         this.produtoRepository = produtoRepository;

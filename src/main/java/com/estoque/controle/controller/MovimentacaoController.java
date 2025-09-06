@@ -52,7 +52,6 @@ public class MovimentacaoController {
     })
     @GetMapping("produto/{produtoId}")
     public List<Movimentacao> listaPorProduto(@PathVariable Long produtoId) {
-        List<Movimentacao> movimentacoes = movimentacaoRepository.findByProdutoId(produtoId);
-        return movimentacoes;
+        return movimentacaoRepository.findByProdutoId(produtoId);
     }
 }

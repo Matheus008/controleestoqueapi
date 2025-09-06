@@ -14,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class VendaService {
 
-    private ProdutoRepository produtoRepository;
-    private VendaRepository vendaRepository;
-    private MovimentacaoService movimentacaoService;
-    private ClienteRepository clienteRepository;
+    private final ProdutoRepository produtoRepository;
+    private final VendaRepository vendaRepository;
+    private final MovimentacaoService movimentacaoService;
+    private final ClienteRepository clienteRepository;
 
     public VendaService(ProdutoRepository produtoRepository,
                         VendaRepository vendaRepository,

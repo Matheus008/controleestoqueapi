@@ -88,6 +88,11 @@ public class RelatorioController {
         return relatorioService.relatorioDeVenda(filtro);
     }
 
+    @Operation(summary = "Busca Indicadores de um determinado periodo", description = "Retornará faturamento total e quantidade total vendida")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso"),
+            @ApiResponse(responseCode = "403", description = "Não tem permissão para executar essa ação")
+    })
     @GetMapping("/vendas/indicadores")
     public Map<String, Object> indicadores(
             @RequestParam LocalDate inicio,
@@ -107,6 +112,11 @@ public class RelatorioController {
         );
     }
 
+    @Operation(summary = "Retorna os vendedores que mais venderam", description = "Poderá realizar uma busca com os vendedores que mais venderam em um determinado período")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Ranking gerado com sucesso"),
+            @ApiResponse(responseCode = "403", description = "Não tem permissão para executar essa ação")
+    })
     @GetMapping("/vendas/ranking")
     public Map<String, Object> rankingVendedor(
             @RequestParam LocalDate inicio,
@@ -126,6 +136,11 @@ public class RelatorioController {
         );
     }
 
+    @Operation(summary = "Exportar relatórios em PDF", description = "Poderá criar relatórios personalizados com indicadores, ranking de produtos mais vendidos e os vendedores que mais venderam e exportar em PDF")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Relatório gerado com sucesso"),
+            @ApiResponse(responseCode = "403", description = "Não tem permissão para executar essa ação")
+    })
     @GetMapping("/export/pdf")
     public void exportarEmPdf(HttpServletResponse response,
                               @RequestParam LocalDate inicio,
@@ -157,7 +172,7 @@ public class RelatorioController {
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD), 16);
             contentStream.beginText();
             contentStream.newLineAtOffset(50, 750);
-            contentStream.showText("Relatorio General");
+            contentStream.showText("Relatorio Geral");
             contentStream.endText();
 
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
@@ -250,6 +265,11 @@ public class RelatorioController {
 
     }
 
+    @Operation(summary = "Exportar relatórios em Excel", description = "Poderá criar relatórios personalizados com indicadores, ranking de produtos mais vendidos e os vendedores que mais venderam e exportar em Excel")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Relatório gerado com sucesso"),
+            @ApiResponse(responseCode = "403", description = "Não tem permissão para executar essa ação")
+    })
     @GetMapping("/export/excel")
     public void exportarEmExcel(HttpServletResponse response,
                                 @RequestParam LocalDate inicio,
