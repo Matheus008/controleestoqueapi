@@ -15,12 +15,14 @@ public class MovimentacaoService {
     private final ProdutoRepository produtoRepository;
     private final MovimentacaoRepository movimentacaoRepository;
     private final ProdutoService produtoService;
+    private final ConfigEstoqueService configEstoqueService;
 
 
-    public MovimentacaoService(ProdutoRepository produtoRepository, MovimentacaoRepository movimentacaoRepository, ProdutoService produtoService) {
+    public MovimentacaoService(ProdutoRepository produtoRepository, MovimentacaoRepository movimentacaoRepository, ProdutoService produtoService, ConfigEstoqueService configEstoqueService) {
         this.movimentacaoRepository = movimentacaoRepository;
         this.produtoRepository = produtoRepository;
         this.produtoService = produtoService;
+        this.configEstoqueService = configEstoqueService;
     }
 
     @Transactional
@@ -32,10 +34,10 @@ public class MovimentacaoService {
                 throw new RuntimeException("Quantidade de saida maior que o estoque!");
             }
             produto.setQuantidade(produto.getQuantidade() - quantidade);
-
         } else {
             produto.setQuantidade(produto.getQuantidade() + quantidade);
         }
+        configEstoqueService.atualizaStatus(produtoId);
 
         Movimentacao movimentacao = new Movimentacao();
         movimentacao.setProduto(produto);
@@ -43,7 +45,7 @@ public class MovimentacaoService {
         movimentacao.setTipoMovimentacao(tipoMovimentacao);
         movimentacao.setDescricao(descricao);
         movimentacao.setUsuario(usuario);
-        
+
 
         produto.setValorTotal(produtoService.calcularValorTotal(produto.getQuantidade(), produto.getPreco()));
 
