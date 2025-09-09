@@ -1,5 +1,8 @@
 package com.estoque.controle.services;
 
+import com.estoque.controle.exceptions.ClienteNaoEncontradoException;
+import com.estoque.controle.exceptions.EstoqueInsuficienteException;
+import com.estoque.controle.exceptions.ProdutoNaoEncontradoException;
 import com.estoque.controle.model.cliente.Cliente;
 import com.estoque.controle.model.produto.Produto;
 import com.estoque.controle.model.produto.TipoMovimentacao;
@@ -31,18 +34,18 @@ public class VendaService {
 
     @Transactional
     public Venda registrarVenda(Long produtoId, int quantidade, Long clienteId, Usuario usuario) {
-        Produto produto = produtoRepository.findById(produtoId).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
-        Cliente cliente =  clienteRepository.findById(clienteId).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+        Produto produto = produtoRepository.findById(produtoId).orElseThrow(ProdutoNaoEncontradoException::new);
+        Cliente cliente =  clienteRepository.findById(clienteId).orElseThrow(ClienteNaoEncontradoException::new);
 
         if(produto.getQuantidade() < quantidade) {
-            throw new RuntimeException("Quantidade inválida");
+            throw new EstoqueInsuficienteException(produto.getNome(), quantidade, produto.getQuantidade());
         }
 
 
         Venda venda = new Venda();
         venda.setUsuario(usuario);
         venda.setQuantidade(quantidade);
-        venda.setValorTotalVendido((produto.getPreco() * quantidade) * 1.05); // provisório
+        venda.setValorTotalVendido((produto.getPreco() * quantidade) * 1.05);
         venda.setProduto(produto);
         String descricao = "Venda realizada para o cliente: " + cliente.getNomeCliente();
         venda.setMovimentacao(movimentacaoService.registrarMovimentacao(produtoId, quantidade, TipoMovimentacao.SAIDA, descricao, usuario));

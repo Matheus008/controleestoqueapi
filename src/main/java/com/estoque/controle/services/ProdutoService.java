@@ -1,5 +1,6 @@
 package com.estoque.controle.services;
 
+import com.estoque.controle.exceptions.FornecedorNaoEncontradoException;
 import com.estoque.controle.model.fornecedor.Fornecedor;
 import com.estoque.controle.model.produto.Produto;
 import com.estoque.controle.repository.FornecedorRepository;
@@ -20,7 +21,7 @@ public class ProdutoService {
 
     @Transactional
     public Produto registrarProduto(String nome, String descricao, Double preco, Long idFornecedor) {
-        Fornecedor fornecedor = fornecedorRepository.findById(idFornecedor).orElseThrow(() -> new RuntimeException("Fornecedor não encontrado!"));
+        Fornecedor fornecedor = fornecedorRepository.findById(idFornecedor).orElseThrow(FornecedorNaoEncontradoException::new);
 
         Produto produto = new Produto();
         produto.setNome(nome);

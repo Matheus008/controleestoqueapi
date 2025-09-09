@@ -1,5 +1,7 @@
 package com.estoque.controle.controller;
 
+import com.estoque.controle.exceptions.CampoVazioException;
+import com.estoque.controle.exceptions.UsuarioNaoEncontradoException;
 import com.estoque.controle.model.usuario.Usuario;
 import com.estoque.controle.repository.UsuarioRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,7 +31,7 @@ public class UsuarioController {
     })
     @DeleteMapping("{id}")
     public void deletarUsuario(@PathVariable("id") Long id) {
-        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(UsuarioNaoEncontradoException::new);
 
         usuarioRepository.deleteById(id);
     }
@@ -66,7 +68,7 @@ public class UsuarioController {
     @GetMapping("{email}")
     public UserDetails buscarPorEmail(@PathVariable String email) {
         if(email == null) {
-            throw new IllegalArgumentException("O campo email está vazio!");
+            throw new CampoVazioException();
         }
         return usuarioRepository.findByEmail(email);
     }

@@ -21,12 +21,11 @@ public class TokenService {
     public String gerarToken(Usuario usuario) {
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);
-            String token = JWT.create()
+            return JWT.create()
                     .withIssuer("estoque-api")
                     .withSubject(usuario.getUsername())
                     .withExpiresAt(genExpirationDate() )
                     .sign(algorithm);
-            return token;
         } catch (JWTCreationException e) {
             throw new RuntimeException("Erro enquanto gera o token", e);
         }

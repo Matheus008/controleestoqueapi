@@ -1,5 +1,6 @@
 package com.estoque.controle.controller;
 
+import com.estoque.controle.exceptions.ClienteNaoEncontradoException;
 import com.estoque.controle.model.cliente.Cliente;
 import com.estoque.controle.dto.ClienteDTO;
 import com.estoque.controle.repository.ClienteRepository;
@@ -67,7 +68,7 @@ public class ClienteController {
     })
     @PutMapping("{id}")
     public Cliente atualizar(@PathVariable("id") Long id,@RequestBody ClienteDTO clienteDTO) {
-        Cliente cliente = clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+        Cliente cliente = clienteRepository.findById(id).orElseThrow(ClienteNaoEncontradoException::new);
 
         ClienteDTO dtoFormatado = ClienteDTO.of(
                 clienteDTO.nomeCliente(),

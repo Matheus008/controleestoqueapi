@@ -21,8 +21,8 @@ import java.security.Principal;
 @Tag(name = "Vendas", description = "Registrar venda dos produtos")
 public class VendaController {
 
-    private VendaService vendaService;
-    private UsuarioRepository usuarioRepository;
+    private final VendaService vendaService;
+    private final UsuarioRepository usuarioRepository;
 
     public VendaController(VendaService vendaService, UsuarioRepository usuarioRepository) {
         this.vendaService = vendaService;

@@ -1,5 +1,8 @@
 package com.estoque.controle.controller;
 
+import com.estoque.controle.exceptions.FornecedorNaoEncontradoException;
+import com.estoque.controle.exceptions.ProdutoNaoEncontradoException;
+import com.estoque.controle.exceptions.ProdutoNaoEstaZeradoException;
 import com.estoque.controle.model.fornecedor.Fornecedor;
 import com.estoque.controle.model.produto.Produto;
 import com.estoque.controle.dto.ProdutoDTO;
@@ -46,10 +49,10 @@ public class ProdutoController {
     })
     @DeleteMapping("{id}")
     public void deletar(@PathVariable("id") Long id) {
-        Produto produto = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNaoEncontradoException::new);
 
         if (produto.getQuantidade() != 0) {
-            throw new IllegalArgumentException("O produto não pode ser excluido, deixe a quantidade do produto zerado!");
+            throw new ProdutoNaoEstaZeradoException();
         } else {
             produtoRepository.deleteById(id);
         }
@@ -62,13 +65,13 @@ public class ProdutoController {
     })
     @PutMapping("{id}")
     public void atualizar(@PathVariable("id") Long id, @RequestBody ProdutoDTO produtoDTO) {
-        Produto produto = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Produto produto = produtoRepository.findById(id).orElseThrow(ProdutoNaoEncontradoException::new);
 
         produto.setId(id);
         produto.setNome(produtoDTO.nome());
         produto.setPreco(produtoDTO.preco());
         produto.setDescricao(produtoDTO.descricao());
-        Fornecedor fornecedor = fornecedorRepository.findById(produtoDTO.idFornecedor()).orElseThrow(() -> new RuntimeException("Fornecedor não encontrado!"));
+        Fornecedor fornecedor = fornecedorRepository.findById(produtoDTO.idFornecedor()).orElseThrow(FornecedorNaoEncontradoException::new);
         produto.setFornecedor(fornecedor);
 
         produtoRepository.save(produto);

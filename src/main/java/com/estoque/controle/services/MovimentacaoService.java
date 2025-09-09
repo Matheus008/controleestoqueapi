@@ -1,5 +1,7 @@
 package com.estoque.controle.services;
 
+import com.estoque.controle.exceptions.EstoqueInsuficienteException;
+import com.estoque.controle.exceptions.ProdutoNaoEncontradoException;
 import com.estoque.controle.model.produto.Movimentacao;
 import com.estoque.controle.model.produto.Produto;
 import com.estoque.controle.model.produto.TipoMovimentacao;
@@ -27,11 +29,11 @@ public class MovimentacaoService {
 
     @Transactional
     public Movimentacao registrarMovimentacao(Long produtoId, int quantidade, TipoMovimentacao tipoMovimentacao, String descricao, Usuario usuario) {
-        Produto produto = produtoRepository.findById(produtoId).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Produto produto = produtoRepository.findById(produtoId).orElseThrow(ProdutoNaoEncontradoException::new);
 
         if (tipoMovimentacao == TipoMovimentacao.SAIDA) {
             if (produto.getQuantidade() < quantidade) {
-                throw new RuntimeException("Quantidade de saida maior que o estoque!");
+                throw new EstoqueInsuficienteException(produto.getNome(), quantidade, produto.getQuantidade());
             }
             produto.setQuantidade(produto.getQuantidade() - quantidade);
         } else {

@@ -16,6 +16,10 @@ Autenticação de usuários com senha criptografada
 
 Geração de relatórios de vendas e movimentações
 
+Configuração de estoque personalizado
+
+Alertas para estoque abaixo do minimo
+
 Documentação da API com Swagger UI
 
 # ⚙️ Tecnologias Utilizadas

@@ -1,5 +1,6 @@
 package com.estoque.controle.controller;
 
+import com.estoque.controle.exceptions.FornecedorNaoEncontradoException;
 import com.estoque.controle.model.fornecedor.Fornecedor;
 import com.estoque.controle.dto.FornecedorDTO;
 import com.estoque.controle.repository.FornecedorRepository;
@@ -48,7 +49,7 @@ public class FornecedorController {
     })
     @DeleteMapping("{id}")
     public void deletar(@PathVariable("id") Long id) {
-        Fornecedor fornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new RuntimeException("Fornecedor não encontrado"));
+        Fornecedor fornecedor = fornecedorRepository.findById(id).orElseThrow(FornecedorNaoEncontradoException::new);
 
         fornecedorRepository.delete(fornecedor);
     }
@@ -60,7 +61,7 @@ public class FornecedorController {
     })
     @PutMapping("{id}")
     public Fornecedor atualizar(@PathVariable("id") Long id, @RequestBody FornecedorDTO fornecedorDTO) {
-        Fornecedor fornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new RuntimeException("Fornecedor não encontrado!"));
+        Fornecedor fornecedor = fornecedorRepository.findById(id).orElseThrow(FornecedorNaoEncontradoException::new);
 
         FornecedorDTO dtoFormatado = FornecedorDTO.of(fornecedorDTO.nomeFornecedor(), fornecedorDTO.cpfOuCnpj(), fornecedorDTO.tipoFornecedor());
 

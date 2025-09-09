@@ -1,6 +1,7 @@
 package com.estoque.controle.services;
 
 import com.estoque.controle.dto.InventarioDTO;
+import com.estoque.controle.exceptions.ProdutoNaoEncontradoException;
 import com.estoque.controle.model.produto.ConfigEstoque;
 import com.estoque.controle.model.produto.Produto;
 import com.estoque.controle.model.produto.StatusEstoque;
@@ -23,7 +24,7 @@ public class ConfigEstoqueService {
     }
 
     public ConfigEstoque configurarEstoque(int estoqueMinimo, int estoqueMaximo, Long idProduto) {
-        Produto produto = produtoRepository.findById(idProduto).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Produto produto = produtoRepository.findById(idProduto).orElseThrow(ProdutoNaoEncontradoException::new);
 
         ConfigEstoque configEstoque = configEstoqueRepository.findByProdutoId(idProduto).orElse(new ConfigEstoque());
 
@@ -36,7 +37,7 @@ public class ConfigEstoqueService {
     }
 
     public void atualizaStatus(Long idProduto) {
-        Produto produto = produtoRepository.findById(idProduto).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        Produto produto = produtoRepository.findById(idProduto).orElseThrow(ProdutoNaoEncontradoException::new);
 
         ConfigEstoque configEstoque = configEstoqueRepository.findByProdutoId(idProduto).orElseThrow();
 
