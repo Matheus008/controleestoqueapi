@@ -31,7 +31,7 @@ public class UsuarioController {
     })
     @DeleteMapping("{id}")
     public void deletarUsuario(@PathVariable("id") Long id) {
-        Usuario usuario = usuarioRepository.findById(id).orElseThrow(UsuarioNaoEncontradoException::new);
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow();
 
         usuarioRepository.deleteById(id);
     }

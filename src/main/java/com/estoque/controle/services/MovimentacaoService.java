@@ -48,7 +48,6 @@ public class MovimentacaoService {
         movimentacao.setDescricao(descricao);
         movimentacao.setUsuario(usuario);
 
-
         produto.setValorTotal(produtoService.calcularValorTotal(produto.getQuantidade(), produto.getPreco()));
 
         produtoRepository.save(produto);

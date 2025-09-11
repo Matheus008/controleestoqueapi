@@ -1,5 +1,6 @@
 package com.estoque.controle.services;
 
+import com.estoque.controle.exceptions.UsuarioNaoEncontradoException;
 import com.estoque.controle.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,11 +19,11 @@ public class AutenticacaoService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsuarioNaoEncontradoException {
 
         UserDetails usuario = usuarioRepository.findByEmail(email);
         if (usuario == null) {
-            throw new UsernameNotFoundException("Usuário não encontrado: " + email);
+            throw new UsuarioNaoEncontradoException(email);
         }
         return usuario;
     }
