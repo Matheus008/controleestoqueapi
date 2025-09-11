@@ -223,5 +223,42 @@ class ConfigEstoqueServiceTest {
         Mockito.verify(configEstoqueRepository, Mockito.times(1)).findAll();
     }
 
+    @Test
+    @DisplayName("Deve retornar uma lista com alertas de produto abaixo ou acima do estoque")
+    void deveRetornarOsAlestas() {
+        Fornecedor fornecedor = new Fornecedor();
+        fornecedor.setNomeCliente("teste");
+        fornecedor.setCpfOuCnpj("99999999999");
+        fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
+        Produto produto = new Produto();
+        produto.setId(1L);
+        produto.setNome("Tv Samsung");
+        produto.setDescricao("Tv pirata");
+        produto.setPreco(1000.00);
+        produto.setQuantidade(10);
+        produto.setValorTotal(produto.getPreco() * produto.getQuantidade());
+        produto.setFornecedor(fornecedor);
+
+        ConfigEstoque configEstoque = new ConfigEstoque();
+        configEstoque.setId(1L);
+        configEstoque.setEstoqueMinimo(10);
+        configEstoque.setEstoqueMaximo(15);
+        configEstoque.setProduto(produto);
+        configEstoque.setStatusEstoque(StatusEstoque.ABAIXO);
+
+        Mockito.when(configEstoqueRepository.findAll()).thenReturn(List.of(configEstoque));
+
+        List<String> resultado = configEstoqueService.alertaEstoque();
+
+        assertNotNull(resultado);
+        assertEquals(1, resultado.size());
+        assertEquals("⚠ Produto "+
+                configEstoque.getProduto().getNome() +
+                " a baixo do estoque minimo ("+
+                configEstoque.getProduto().getQuantidade() +
+                "/"+ configEstoque.getEstoqueMinimo() +")",
+                resultado.getFirst()
+                );
+    }
 }
