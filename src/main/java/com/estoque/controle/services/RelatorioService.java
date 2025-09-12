@@ -23,7 +23,7 @@ public class RelatorioService {
         this.vendaRepository = vendaRepository;
     }
 
-    public List<RelatorioMovimentacaoDTO> relatioriDeMovimentacao(FiltroRelatorioDTO filtro) {
+    public List<RelatorioMovimentacaoDTO> relatorioDeMovimentacao(FiltroRelatorioDTO filtro) {
         List<Movimentacao> movimentacoes;
 
         if(filtro.inicio() != null && filtro.fim() != null) {

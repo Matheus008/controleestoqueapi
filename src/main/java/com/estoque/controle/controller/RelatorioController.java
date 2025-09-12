@@ -64,7 +64,7 @@ public class RelatorioController {
             @RequestParam(required = false) TipoMovimentacao tipoMovimentacao
     ) {
         FiltroRelatorioDTO filtro = new FiltroRelatorioDTO(inicio, fim, idUsuario, idProduto, null, tipoMovimentacao);
-        return relatorioService.relatioriDeMovimentacao(filtro);
+        return relatorioService.relatorioDeMovimentacao(filtro);
     }
 
     @Operation(summary = "Relatorios de vendas", description = "Poderá criar relatórios personalizados de vendas")
