@@ -33,7 +33,7 @@ public class Fornecedor {
         return nomeFornecedor;
     }
 
-    public void setNomeCliente(String nomeFornecedor) {
+    public void setNomeFornecedor(String nomeFornecedor) {
         this.nomeFornecedor = nomeFornecedor;
     }
 

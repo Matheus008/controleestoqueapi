@@ -33,7 +33,7 @@ public class FornecedorController {
         FornecedorDTO dtoFormatado = FornecedorDTO.of(fornecedorDTO.nomeFornecedor(), fornecedorDTO.cpfOuCnpj(), fornecedorDTO.tipoFornecedor());
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente(dtoFormatado.nomeFornecedor());
+        fornecedor.setNomeFornecedor(dtoFormatado.nomeFornecedor());
         fornecedor.setCpfOuCnpj(dtoFormatado.cpfOuCnpj());
         fornecedor.setTipoFornecedor(dtoFormatado.tipoFornecedor());
 
@@ -66,7 +66,7 @@ public class FornecedorController {
         FornecedorDTO dtoFormatado = FornecedorDTO.of(fornecedorDTO.nomeFornecedor(), fornecedorDTO.cpfOuCnpj(), fornecedorDTO.tipoFornecedor());
 
         fornecedor.setId(id);
-        fornecedor.setNomeCliente(dtoFormatado.nomeFornecedor());
+        fornecedor.setNomeFornecedor(dtoFormatado.nomeFornecedor());
         fornecedor.setCpfOuCnpj(dtoFormatado.cpfOuCnpj());
         fornecedor.setTipoFornecedor(dtoFormatado.tipoFornecedor());
 
