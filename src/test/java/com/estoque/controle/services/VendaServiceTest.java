@@ -51,7 +51,7 @@ class VendaServiceTest {
     void deveRealizarUmaVenda() {
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -119,7 +119,7 @@ class VendaServiceTest {
     @DisplayName("Lançar uma exceção para cliente não encontrado")
     void deveLancarUmaExcecaoQuandoOClienteNaoExiste() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -145,7 +145,7 @@ class VendaServiceTest {
     @DisplayName("Lançar uma exceção para estoque insuficiente")
     void deveLancarUmaExcecaoQuandoEstoqueInsuficiente() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 

@@ -27,7 +27,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
@@ -50,7 +49,7 @@ class RelatorioServiceTest {
         usuario.setId(1L);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -108,7 +107,7 @@ class RelatorioServiceTest {
         usuario.setId(1L);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -162,7 +161,7 @@ class RelatorioServiceTest {
         usuario.setId(1L);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -216,7 +215,7 @@ class RelatorioServiceTest {
         usuario.setId(1L);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -274,7 +273,7 @@ class RelatorioServiceTest {
         usuario.setId(1L);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -330,7 +329,7 @@ class RelatorioServiceTest {
         usuario.setId(1L);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -383,7 +382,7 @@ class RelatorioServiceTest {
     @DisplayName("Deve gerar relatório entre duas datas e aplicando todos os filtros para venda")
     void deveGerarRelatorioEntreDuasDatasEAplcicarTodosOFiltrosParaVenda() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -456,7 +455,7 @@ class RelatorioServiceTest {
     @DisplayName("Deve gerar relatório e aplicando somente o filtro inicio para venda")
     void deveGerarRelatorioEAplcicarSomenteOFiltrosInicioParaVenda() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -542,7 +541,7 @@ class RelatorioServiceTest {
     @DisplayName("Deve gerar relatório e aplicando somente o filtro fim para venda")
     void deveGerarRelatorioEAplcicarSomenteOFiltrosFimParaVenda() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -626,7 +625,7 @@ class RelatorioServiceTest {
     @DisplayName("Deve gerar relatório e aplicando somente o filtro produtoId para venda")
     void deveGerarRelatorioEAplcicarSomenteOFiltrosProdutoIdParaVenda() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -709,7 +708,7 @@ class RelatorioServiceTest {
     @DisplayName("Deve gerar relatório e aplicando somente o filtro clienteId para venda")
     void deveGerarRelatorioEAplcicarSomenteOFiltrosClienteIdParaVenda() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -793,7 +792,7 @@ class RelatorioServiceTest {
     @DisplayName("Deve gerar relatório e aplicando somente o filtro usuarioId para venda")
     void deveGerarRelatorioEAplcicarSomenteOFiltrosUsuarioIdParaVenda() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 

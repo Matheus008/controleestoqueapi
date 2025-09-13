@@ -41,7 +41,7 @@ class ConfigEstoqueServiceTest {
     @DisplayName("Deve realizar a configuração do estoque")
     void deveConfigurarOEstoque() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -88,7 +88,7 @@ class ConfigEstoqueServiceTest {
     @DisplayName("Deve realizar a mudanca do status do estoque")
     void deveAtualizarOStatusDoEstoque() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -151,7 +151,7 @@ class ConfigEstoqueServiceTest {
     @DisplayName("Deve retornar o inventario com o nome do produto, quantidade, status do estoque, estoque minimo e maximo")
     void deveRetornarOInventarioDoEstoque() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -192,7 +192,7 @@ class ConfigEstoqueServiceTest {
     @DisplayName("Deve listar produtos abaixo do minimo")
     void deveListarProdutosAbaixoDoMinimo() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -227,7 +227,7 @@ class ConfigEstoqueServiceTest {
     @DisplayName("Deve retornar uma lista com alertas de produto abaixo ou acima do estoque")
     void deveRetornarOsAlestas() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 

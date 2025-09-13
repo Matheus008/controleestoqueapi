@@ -14,7 +14,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 
 
@@ -44,7 +43,7 @@ class ProdutoServiceTest {
     @DisplayName("Teste para cadastrar produtos com fornecedor")
     void deveRetornarUmProduto() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 

@@ -48,7 +48,7 @@ class MovimentacaoServiceTest {
     @DisplayName("Lançar uma movimentação de entrada")
     void deveRealizarUmaMovimentacaoDeEntrada() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -92,7 +92,7 @@ class MovimentacaoServiceTest {
     @DisplayName("Lançar uma movimentação de saida")
     void deveRealizarUmaMovimentacaoDeSaida() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
@@ -150,7 +150,7 @@ class MovimentacaoServiceTest {
     @DisplayName("Lançar uma exceção de estoque insuficiente")
     void deveLancarUmaExcecaoEstoqueInsuficiente() {
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNomeCliente("teste");
+        fornecedor.setNomeFornecedor("teste");
         fornecedor.setCpfOuCnpj("99999999999");
         fornecedor.setTipoFornecedor(TipoFornecedor.FISICA);
 
